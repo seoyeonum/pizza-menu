@@ -98,3 +98,13 @@ root.render(
 // - Piece of UI has its own data, logic, and appearance (how it works and looks)
 // - We build complex UIs by building multiple components and combining them
 // - Components can be reused, nested inside each other, and pass data between them
+
+// JSX: JavaScript XML
+// ※ XML: eXtensivla Markup Language
+
+// What's JSX?
+// - Declarative syntax to describe what components look like and how they work
+// - Components must return a block of JSX
+// - Extension of JavaScript that allows us to embed JavaScript, CSS, and React components into HTML
+// - Each JSX elelment is converted to a React.createElement function call
+// - We could use React without JSX
