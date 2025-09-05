@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 
 const pizzaData = [
   {
@@ -48,7 +49,8 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
+    // JSX 에서는 class 대신 className 사용 (class 는 이미 JS의 예약어)
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -57,18 +59,25 @@ function App() {
 }
 
 function Header() {
-  return <h1>Fast React Pizza Co.</h1>;
+  // 각 속성명은 JavaScript 명명규칙에 따라 camel 표기법을 따른다.
+  // const style = { color: 'red', fontSize: '48px', textTransform: 'uppercase' };
+  const style = {};
+  return (
+    <header className="header footer">
+      <h1 style={style}>Fast React Pizza Co.</h1>
+    </header>
+  );
 }
 
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our menu</h2>
       <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
-    </div>
+    </main>
   );
 }
 
@@ -84,7 +93,9 @@ function Footer() {
   // ※ strict mode 에서는 모든 게 두 번씩 실행된다.
 
   return (
-    <footer>{new Date().toLocaleTimeString()}. We're currently open</footer>
+    <footer className="fotter">
+      {new Date().toLocaleTimeString()}. We're currently open
+    </footer>
     // return React.createElement('footer', null, "We're currently open!");
   );
 }
@@ -96,7 +107,7 @@ function Pizza() {
   return (
     <div>
       <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
-      <h2>Pizza Spinaci</h2>
+      <h3>Pizza Spinaci</h3>
       <p>Tomato, mozarella, spinach, and ricotta cheese</p>
     </div>
   );
