@@ -164,3 +164,13 @@ root.render(
 // - Extension of JavaScript that allows us to embed JavaScript, CSS, and React components into HTML
 // - Each JSX elelment is converted to a React.createElement function call
 // - We could use React without JSX
+
+// Props are READ-ONLY
+// component: data(props, state), logic, appearance
+// state 는 기본적으로 내부 구성 요소 데이터로, component logic 에 의해 업에이트될 수 있다.
+// → State is internal data that can be updated by the component's logic
+// props 는 부모 component로부터 온 요소로, 부모 component 자체로만 update 가능하고,
+// 그 외에는 READ-ONLY이다.
+// → Props is data coming from the outside, and can only be updated by the parent component
+// ※ Props are read-only, they are immutable! This is one of Reat's strict rules.
+// ※ If you need to mutate props, you actually need state
