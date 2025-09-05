@@ -73,11 +73,37 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price={10} // JSX 는 기본 문자열로 데이터를 전달하므로, 숫자가 필요하다면 {중괄호}로 감싸주어야 한다.
+      />
+
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mushrooms"
+        price={12}
+        photoName="pizzas/funghi.jpg"
+      />
     </main>
+  );
+}
+
+// React 에서 Component 를 구성할 때는...
+// 1. function name 은 대문자로 시작할 것
+// 2. markup (대개는 JSX) 를 반환해야 한다.
+function Pizza(props) {
+  console.log(props);
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price + 3}</span>
+      </div>
+    </div>
   );
 }
 
@@ -97,19 +123,6 @@ function Footer() {
       {new Date().toLocaleTimeString()}. We're currently open
     </footer>
     // return React.createElement('footer', null, "We're currently open!");
-  );
-}
-
-// React 에서 Component 를 구성할 때는...
-// 1. function name 은 대문자로 시작할 것
-// 2. markup (대개는 JSX) 를 반환해야 한다.
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
-      <h3>Pizza Spinaci</h3>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-    </div>
   );
 }
 
