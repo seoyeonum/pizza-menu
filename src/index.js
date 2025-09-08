@@ -165,6 +165,10 @@ root.render(
 // - Each JSX elelment is converted to a React.createElement function call
 // - We could use React without JSX
 
+// JSX와 HTML
+// - JSX는 HTML과 유사하며, 중괄호{}를 이용해 JavaScript Mode 사용이 가능하다. (단, if/else, for, swith 같은 statement 사용 불가)
+// - JSX 는 하나의 부모 요소(root element)를 가진다.
+
 // Props are READ-ONLY
 // component: data(props, state), logic, appearance
 // state 는 기본적으로 내부 구성 요소 데이터로, component logic 에 의해 업에이트될 수 있다.
