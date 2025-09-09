@@ -78,13 +78,15 @@ function Menu() {
     <main className="menu">
       <h2>Our menu</h2>
 
-      {numPizzas > 0 && (
+      {numPizzas > 0 ? (
         <ul className="pizzas">
           {pizzas.map((pizza) => (
             <Pizza pizzaObj={pizza} key={pizza.name} />
           ))}
           {/* map() 사용 시, 각 요소에는 고유한 key가 부여되어야 한다. */}
         </ul>
+      ) : (
+        <p>We're still working on our menu. Please come back later :)</p>
       )}
 
       {/* <Pizza
@@ -134,10 +136,14 @@ function Footer() {
 
   return (
     <footer className="fotter">
-      {isOpen && (
+      {isOpen ? (
         <div className="order">
           <p>We're open until {closeHour}:00. Come visit us or order online.</p>
         </div>
+      ) : (
+        <p>
+          We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+        </p>
       )}
     </footer>
   );
