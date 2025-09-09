@@ -70,15 +70,22 @@ function Header() {
 }
 
 function Menu() {
+  const pizzas = pizzaData;
+  // const pizzas = [];
+  const numPizzas = pizzas.length;
+
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <ul className="pizzas">
-        {pizzaData.map((pizza) => (
-          <Pizza pizzaObj={pizza} key={pizza.name} />
-        ))}
-        {/* map() 사용 시, 각 요소에는 고유한 key가 부여되어야 한다. */}
-      </ul>
+
+      {numPizzas > 0 && (
+        <ul className="pizzas">
+          {pizzas.map((pizza) => (
+            <Pizza pizzaObj={pizza} key={pizza.name} />
+          ))}
+          {/* map() 사용 시, 각 요소에는 고유한 key가 부여되어야 한다. */}
+        </ul>
+      )}
 
       {/* <Pizza
         name="Pizza Spinaci"
@@ -127,10 +134,17 @@ function Footer() {
 
   return (
     <footer className="fotter">
-      {new Date().toLocaleTimeString()}. We're currently open
+      {isOpen && (
+        <div className="order">
+          <p>We're open until {closeHour}:00. Come visit us or order online.</p>
+        </div>
+      )}
     </footer>
-    // return React.createElement('footer', null, "We're currently open!");
   );
+  // isOpen이 true 라면 short circuit 에 따라 다음 항목이 나타난다.(출력된다.)
+  // ※ true 나 false 는 출력되지 않는다.
+
+  // return React.createElement('footer', null, "We're currently open!");
 }
 
 // React v18
