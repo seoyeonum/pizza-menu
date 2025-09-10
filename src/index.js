@@ -109,18 +109,18 @@ function Menu() {
 // React 에서 Component 를 구성할 때는...
 // 1. function name 은 대문자로 시작할 것
 // 2. markup (대개는 JSX) 를 반환해야 한다.
-function Pizza(props) {
-  console.log(props);
+function Pizza({ pizzaObj }) {
+  console.log(pizzaObj);
 
-  if (props.pizzaObj.soldOut) return null;
+  if (pizzaObj.soldOut) return null;
 
   return (
     <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price}</span>
       </div>
     </li>
   );
@@ -142,7 +142,7 @@ function Footer() {
   return (
     <footer className="fotter">
       {isOpen ? (
-        <Order closeHour={closeHour} />
+        <Order closeHour={closeHour} openHour={openHour} />
       ) : (
         <p>
           We're happy to welcome you between {openHour}:00 and {closeHour}:00.
@@ -156,11 +156,12 @@ function Footer() {
   // return React.createElement('footer', null, "We're currently open!");
 }
 
-function Order(props) {
+function Order({ closeHour, openHour }) {
   return (
     <div className="order">
       <p>
-        We're open until {props.closeHour}:00. Come visit us or order online.
+        We're open from {openHour}:00 to {closeHour}:00. Come visit us or order
+        online.
       </p>
     </div>
   );
