@@ -111,6 +111,9 @@ function Menu() {
 // 2. markup (대개는 JSX) 를 반환해야 한다.
 function Pizza(props) {
   console.log(props);
+
+  if (props.pizzaObj.soldOut) return null;
+
   return (
     <li className="pizza">
       <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
@@ -133,6 +136,8 @@ function Footer() {
   // if (hour >= openHour && hour <= closeHour) alert("We're currently open!");
   // else alert("Sorry we're closed");
   // ※ strict mode 에서는 모든 게 두 번씩 실행된다.
+
+  // if (!isOpen) return <p>CLOSED</p>;
 
   return (
     <footer className="fotter">
