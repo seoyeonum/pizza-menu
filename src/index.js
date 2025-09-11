@@ -63,7 +63,7 @@ function Header() {
   // const style = { color: 'red', fontSize: '48px', textTransform: 'uppercase' };
   const style = {};
   return (
-    <header className="header footer">
+    <header className="header">
       <h1 style={style}>Fast React Pizza Co.</h1>
     </header>
   );
@@ -79,12 +79,22 @@ function Menu() {
       <h2>Our menu</h2>
 
       {numPizzas > 0 ? (
-        <ul className="pizzas">
-          {pizzas.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} />
-          ))}
-          {/* map() 사용 시, 각 요소에는 고유한 key가 부여되어야 한다. */}
-        </ul>
+        // JSX 를 하나의 엘리먼트로 묶고 싶지 않을 때, React Fragment를 사용할 수 있다.
+        // 아래와 같이 <></> 안에 필요한 JSX를 작성한다.
+        // ※ 경우에 따라 key 속성이 필요하다면?
+        // → React 라이브러리를 import 한 채로 <React.Fragment key=''> 식으로 쓸 수 있다.
+        <>
+          <p>
+            Authentic Italian cuisine. 6 creative dishes to choose from. All
+            from out stone oven, all organic, all delicious.
+          </p>
+          <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+            {/* map() 사용 시, 각 요소에는 고유한 key가 부여되어야 한다. */}
+          </ul>
+        </>
       ) : (
         <p>We're still working on our menu. Please come back later :)</p>
       )}
